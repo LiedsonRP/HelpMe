@@ -1,0 +1,96 @@
+.popup-wrapper #confirma_log {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--back1);
+    color:black;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 32px;
+    border-radius: 10px 0px;
+    transform: scale(2);
+    position: relative;
+    bottom: 80px;
+
+}
+.popup-wrapper {
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.popup-wrapper img {
+    position: relative;
+    transform: scale(0.4);
+    bottom: 50px;
+}
+
+.popup-wrapper h1 {
+    
+    position: relative;
+    bottom: 100px;
+
+}
+
+.popup-wrapper .input_info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+.popup-wrapper input {
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    margin-bottom: 40px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.popup-wrapper .n_login{
+    display: block;
+    flex-direction: column;
+    position: relative;
+    bottom: 50px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 21px;
+}
+.popup-wrapper .n_login a{
+    color: var(--formtit);
+    text-decoration: none;
+}
+
+.popup {
+    font-family:var(--fontbut_hotbar) ;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 530px;
+    margin: 10% auto;
+    padding: 24px;
+    background: white;
+    position: relative;
+    border-radius: 20px 0px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px var(--back2);
+    
+
+}
+
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}

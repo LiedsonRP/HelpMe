@@ -1,15 +1,163 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Me!</title>
+    <script src="javaScript.JS"> </script>
+
+    <link rel="stylesheet" href="./Style.css">
+</head>
+<body>
+
+    <div class="popup-wrapper">
+        <div class="popup">
+            <div class="popup-close">x</div>
+
+            <div class="popup-content">
+                <img src="help me/Rectangle 17.svg" alt="img11">
+                <h1>Faça seu login</h1>
+                <div class="input_info">
+                    <input type="text" name="login_email" placeholder="E-mail" id="le">
+                    <input type="text" name="login_senha" placeholder="Senha" id="ls">
+                </div>
+                <button id="confirma_log">Login</button>
+                <div class="n_login">
+                    <a href=""><p>Esqueci minha senha</p></a>
+                    <a href=""><p>Não tenho Cadastro</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#Home" class="botao_home" id="link-home">Home</a>
+    
+            <div id="cl">
+                <button onclick="aperta()" id="lg">
+                    Login
+                </button>
+                <button id="cadastro">
+                    Cadastro
+                </button>
+            </div>
+        </nav>
+
+        <div id="cabecalho">
+            <div class="instruindo">
+                <h1>Me Explica?</h1>
+                <p>Busque professores para te ajuda </p>
+                <a href="#BuscaAgora" class="botao" id="pesquise_butt">Busque Agora</a>
+            </div>
+
+            <div class="tres"></div>
+
+            <div class="imgprime">
+                
+                <img src="help me/Image.svg" alt="img1">
+            
+            </div>
+        </div>
+
+    </header>
+   
+
+    <section id="Serviços">
+        <h1>FAZEMOS A PONTE!</h1>
+        
+
+        <div class="clientes">
+
+            
+                <div class="img_aluno">
+                    <img src="help me/Rectangle 10.svg" alt="img2">
+                    
+                    <div class="paragrafo1">
+                        <h3> Estudantes</h3>
+                        <p>Encontre professores disponíveis para te ensinar qualquer conteúdo por preços acessíveis.</p>
+                    </div>   
+                    <a href="#BD_Aluno" class="botao">Confira agora</a>
+
+                </div>
+
+                <div class="img_prof">
+                    <img src="help me/Rectangle 10-1.svg" alt="img3">   
+        
+                    <div class="paragrafo2">
+                        <h3>Professores</h3>
+                        <p>Ofereça seu serviço e garanta uma uma agenda cheia e ainda ganhe uma renda extra</p>
+                    </div>
+                    <a href="#BD_Professor" class="botao">Cadastre-se</a>
+                    
+                </div>    
+            
+
+        </div>
+
+    </section>
+
+    <section id="info">
+        
+        <h1>A PESSOA CERTA NA HORA CERTA!</h1>
+
+        <div class="conteudo">
+            <div class="paragrafo3">
+                <div class="p1">
+                    <p>Você pode encontrar um profissional com que seja especialista na sua situação...</p>
+                </div>
+            
+                <div class="p2">
+                    <p>Seja por dificuldade ou condição especial, a gente te ajuda a encontrar a pessoa certa!</p>
+                </div>
+            </div>
+
+            <div class="img_juntos">
+                <img src="help me/Rectangle 13.svg" alt="img4">
+               
+            </div> 
+
+        </div>
+    </section>
+
+    <section id="Contato">
+        
+        <h1>Acompanhe a gente</h1>
+        
+        <div class="cont_loja">
+            <div class="imgs_cont">
+                <img src="help me/akar-icons_instagram-fill.svg" alt="img6" link>
+        
+        
+                <a href="https://www.youtube.com/watch?v=MHwyRNtjXIY"><img src="help me/Group.svg" class="oi" alt="img7"></a>
+    
+        
+                <a href=""><img src="help me/akar-icons_twitter-fill.svg" alt="img8"></a>
+            </div>
+
+            <img class="logo" src="help me/Rectangle 17.svg" alt="img9">
+        </div>
+
+        <div class="paragrafo4">
+            <p>Somo um site que buscar ligar profissinais da educação com alunos que precisam de um 
+                reforço escolar, seja por dificuldade particular ou entendimento.
+            </p>
+        </div>
+
+        <h2 class="duvidas">MANDE SUAS DÚVIDAS!</h2>
+
+        
+            <form action="#">
+                <input type="text" name="nome" placeholder="Nome" id="name1">
+                <input type="text" name="e_mail" placeholder="e_mail" id="mail">
+
+                <div class="ola">
+                    <textarea  name="mensagem" id="ola" cols="30" rows="10"> Digite aqui suas frustrações</textarea>
+                </div>
+            </form>
+       
+    </section>
+
+</body>
 </html>
