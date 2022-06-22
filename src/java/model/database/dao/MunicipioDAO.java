@@ -4,7 +4,7 @@
  */
 package model.database.dao;
 
-import model.database.Conexao;
+import model.util.Conexao;
 import model.database.entities.Municipio;
 
 import java.sql.ResultSet;

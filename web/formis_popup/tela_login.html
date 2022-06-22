@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="popup_java.js"> </script>
+    <link rel="stylesheet" href="Style_subPages.css">
+</head>
+<body>
+       
+        <form method="POST" action="/LoginServlet" class="popup-wrapper">
+            <div class="popup">
+                <div class="popup-close">x</div>
+
+                <div class="popup-content">
+                    <img src="imgs/Rectangle 17.svg" alt="img11">
+                    <h1>Faça seu Login</h1>
+                    <div class="input_info">
+
+                        <input type="text" name="login_email" placeholder="E-mail" id="le">
+                        <input type="text" name="login_senha" placeholder="Senha" id="ls">
+                    </div>
+                    <input type="submit" >                    
+                    <div class="n_login">
+                        <a href=""><p>Esqueci minha senha</p></a>
+                        <a href=""><p>Não tenho Cadastro</p></a>
+                    </div>
+                </div>
+            </div>        
+        </form>
+    
+    <div class="popup-wrapper_cadastro">
+        <div class="popup_cadastro">
+            <div class="popup-close_cadastro">x</div>
+
+            <div class="popup-content_cadastro">
+                
+                <h1>Crie sua conta, e deixe a gente dá um Help em você.</h1>
+                <div class="input_info_geral">
+                    <input type="text" name="cadastro_nome" placeholder="Nome Completo" id="cm">
+                    <input type="text" name="cadastro_senha" placeholder="Senha" id="cs">
+                    <input type="text" name="cadastro_repita_senha" placeholder="Repita a senha" id="crs">
+                    <input type="text" name="cadastro_data_nasc" placeholder=" Data de Nascimento" id="cdn">
+                </div>
+                <h1>Dados de Contato:</h1>
+                <div class="input_email">
+                    <input type="text" name="cadastro_email" placeholder="E-mail" id="ce">
+                    <input type="text" name="cadastro_celular" placeholder="Telefone/celular" id="cct">
+                </div>
+
+                <h1>Você é aluno ou professor</h1>
+                <div class="opcao">
+                    <form action="">
+                        <select name="cargo"  id="cc">
+                            <option value="qual">Tipo de Conta</option>
+                            <option value="aluno">Aluno</option>
+                            <option value="prof">Professor</option>
+                        </select>
+                    </form>
+                </div>
+                
+                <button id="confirma_log">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

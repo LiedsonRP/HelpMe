@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Didact+Gothic&family=Noticia+Text:wght@700&family=Noto+Sans&display=swap');
+
+
+
+:root {
+
+    /*cor-famili*/
+    --back1: rgba(236, 183, 134);
+    --back2:#C37549;
+    --textback3:#FBD0A9;
+    --back3:#A14818; 
+    --formtit:#542003;
+    --formback:#F6D8A9;
+    --butoomCor:#f8efef;
+    --butoomcor_home:#221E1E;
+    --sub_titulos: #F0D6C8;
+    --text_fim : #FBC1A0;
+    --text_form: #88431C;
+    --corbut: #ECB786;
+    --tabelas:#F8EEEE;
+    --butfinal: rgba(236, 183, 134, 0.84);
+
+    /*fonte-famili*/
+    --fontbut_hotbar: 'Noticia Text', serif;
+    --fonth1_meexplica: 'Abril Fatface', cursive;
+    --font-paragrafo: 'Noto Sans', sans-serif;
+    --fontbut: 'Didact Gothic', sans-serif;
+
+
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background-color:var(--back2);
+    width: 98vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: var(--corbut);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+}
+
+nav .info_primaria  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    padding-left: 30px;
+    
+}
+nav .info_primaria h1 {
+    margin: 0%;
+    font-family: var(--fontbut_hotbar);
+    color: black;
+    font-weight: 400;
+    font-size: 40px;
+    padding-top: 20px;
+}
+
+nav .info_primaria p {
+    margin: 0%;
+    font-family: var(--font-paragrafo);
+    color: black;
+    font-weight: 400;
+    font-size: 24px;
+    
+
+}
+
+nav .info_primaria button {
+    width: 100%;
+    max-width: 353px;
+    background-color: var(--sub_titulos);
+    padding: 15px;
+    margin-top: 30px;
+    border: none;
+    font-family: var(--fontbut);
+    font-weight: 400;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+nav .nota_avaliativa {
+    background-color:var(--sub_titulos);
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 69px;
+    margin: 0;
+    padding: 70px 80px 0px 80px;
+    text-align: center;
+    transform: scale(0.7);
+
+}
+
+.info_geral{
+    background-color: var(--back2);
+    position: relative;
+    bottom: 90px;
+    right: 20px;
+}
+
+
+
+.info_geral .meios {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--back2);
+    
+    
+}
+
+.info_geral .meios .capacitacao {
+    position: absolute;
+    width: 448px;
+    height: 488px;
+    top: 322px;
+    background-color: var(--tabelas);
+    transform: scale(0.8);
+    border-radius: 10px;
+}
+
+.info_geral .meios .capacitacao h2{
+    
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    
+}
+
+.info_geral .meios .capacitacao h3{
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px;
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+.info_geral .meios .capacitacao h3 img{
+    position: relative;
+    top: 10px;
+}
+
+.info_geral .meios .capacitacao h2 img {
+    margin-right: 10px;
+}
+
+.info_geral .meios .capacitacao p {
+    
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 27px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+    background-color: var(--back3);
+    
+}
+
+.info_geral .meios .diciplinas{
+    position: absolute;
+    width: 445.57px;
+    height: 488px;
+    left: 420px;
+    top: 322px;
+    background-color: var(--tabelas);
+    transform: scale(0.8);
+    border-radius: 10px;
+}
+
+.info_geral .meios .diciplinas h2 {
+    padding-top: 10px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+}
+.info_geral .meios .diciplinas h2 img {
+    margin-right: 10px;
+}
+
+.info_geral .meios .diciplinas p {
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 27px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+    background-color: var(--back3);
+
+    
+}
+
+.info_geral .meios .diciplinas h3{
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px;
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+.info_geral .meios .diciplinas h3 img{
+    position: relative;
+    top: 10px;
+}
+
+.info_geral .meios .ferramentas {
+    position: absolute;
+    width: 445.57px;
+    height: 488px;
+    left: 810px;
+    top: 322px;
+    background-color: var(--tabelas);
+    transform: scale(0.8);
+    border-radius: 10px;
+}
+
+.info_geral .meios .ferramentas h2 {
+    padding-top: 4px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+
+
+}
+
+.info_geral .meios .ferramentas p {
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 27px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    
+    padding-top: 15px;
+    background-color: var(--back3);
+}
+
+.info_geral .meios .ferramentas h3{
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px;
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+.info_geral .meios .ferramentas h3 img{
+    position: relative;
+    top: 10px;
+}
+
+.grade {
+    position: relative;
+    top: 700px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--tabelas);
+    text-align: center;
+    
+}
+
+.grade .horario h2 {
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px
+}
+
+.grade .horario table{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    border-style: groove;
+}
+
+
+
+
+.grade .horario table td {
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 18px;
+    padding-right: 100px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    
+}
+
+.grade .horario h3{
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px
+}
+.grade .horario h3 img {
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    
+
+}
+
+.formas_pagamento {    
+    position: absolute;
+    width: 95%;
+    height: 460px;
+    left: 30px;
+    top: 1250px;
+    background-color: var(--tabelas);
+    display: flex;
+    flex-direction:column;
+    
+}
+
+.formas_pagamento .info_pagar{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.formas_pagamento h1 {
+    position: absolute;
+    right: 370px;
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 36px;
+
+    
+}
+
+.formas_pagamento h1 img{
+    position: relative;
+    top: 20px;
+    
+}
+
+.formas_pagamento h2{
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 29px;
+    position: absolute;
+    bottom: 20px;
+    left: 350px;
+}
+
+.formas_pagamento h2 img{
+    position: relative;
+    top: 15px;
+}
+
+
+.formas_pagamento .info_pagar {
+    flex-direction: row;
+    position: absolute;
+    top: 160px;
+    left: 480px;
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 24px;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+} 
+
+.formas_pagamento .info_pagar .pix{
+    position: absolute;
+    right: 100px;    
+    margin-right:50px ;
+}
+
+.formas_pagamento .info_pagar .cartao{
+    position: absolute;
+    
+}
+
+.formas_pagamento .info_pagar .dinheiro{
+    position: absolute;
+    left: 250px;
+    margin-left: 50px;
+}
+
+.formas_pagamento .interesse {
+    position: absolute;
+    background-color: #221E1E;
+    display: flex;
+    flex-direction: row;
+    padding-top: 600px;
+    
+}
+
+.formas_pagamento .interesse button{
+    cursor: pointer;
+    font-family: var(--fontbut_hotbar);
+    font-weight: 400;
+    font-size: 20px;
+    position: absolute;
+    top: 500px;
+    border: none;
+    border-radius: 10px;
+}
+
+.formas_pagamento .interesse .contato_prof {
+    background-color: var(--text_fim);
+    position: absolute;
+    /* left: 300px; */
+    padding: 5px 10px;
+    width: 400px;
+    height: 90px;
+    left: 103px;
+    top: 490px;
+       
+}
+
+.formas_pagamento .interesse .avalia_prof {
+    background-color: var(--butfinal);
+    position: absolute;
+    width: 400px;
+    height: 90px;
+    left: 650px;
+    top: 490px;
+}

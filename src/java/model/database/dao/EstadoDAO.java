@@ -4,7 +4,7 @@
  */
 package model.database.dao;
 
-import model.database.Conexao;
+import model.util.Conexao;
 import model.database.entities.Estado;
 
 import java.sql.SQLException;

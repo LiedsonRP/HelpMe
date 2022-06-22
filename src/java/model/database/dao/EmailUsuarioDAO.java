@@ -4,7 +4,7 @@
  */
 package model.database.dao;
 
-import model.database.Conexao;
+import model.util.Conexao;
 import model.database.entities.EmailUsuario;
 
 import java.sql.PreparedStatement;
@@ -24,14 +24,13 @@ public class EmailUsuarioDAO {
         try {            
             
             Conexao conn = new Conexao();            
-            sql = "INSERT INTO usuario_email (fk_id_usuario, email, descricao)"
-                    + " VALUES (?, ?, ?)";
+            sql = "INSERT INTO usuario_email (fk_id_usuario, email)"
+                    + " VALUES (?, ?)";
             
             stmt = conn.getConnection().prepareStatement(sql);                                   
             
             stmt.setInt(1, email.getId_usuario());
-            stmt.setString(2, email.getEmail());
-            stmt.setString(3, email.getDescricao());
+            stmt.setString(2, email.getEmail());            
                         
             stmt.executeUpdate();        
             
@@ -45,11 +44,12 @@ public class EmailUsuarioDAO {
      
     public boolean isUserEmailExists(String email) {        
         PreparedStatement stmt;
+        Conexao conn = new Conexao();
         
          try {             
              String sql = "SELECT * FROM usuario_email WHERE email LIKE ?";
              
-             stmt = new Conexao().getConnection().prepareStatement(sql);
+             stmt = conn.getConnection().prepareStatement(sql);
              stmt.setString(1, email);
              
              ResultSet data = stmt.executeQuery();                        

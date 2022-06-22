@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Didact+Gothic&family=Noticia+Text:wght@700&family=Noto+Sans&display=swap');
+
+
+
+:root {
+
+    /*cor-famili*/
+    --back1: rgba(236, 183, 134);
+    --back2:#C37549;
+    --textback3:#FBD0A9;
+    --back3:#A14818; 
+    --formtit:#542003;
+    --formback:#F6D8A9;
+    --butoomCor:#f8efef;
+    --butoomcor_home:#221E1E;
+    --sub_titulos: #F0D6C8;
+    --text_fim : #FBC1A0;
+    --text_form: #88431C;
+
+    /*fonte-famili*/
+    --fontbut_hotbar: 'Noticia Text', serif;
+    --fonth1_meexplica: 'Abril Fatface', cursive;
+    --font-paragrafo: 'Noto Sans', sans-serif;
+    --fontbut: 'Didact Gothic', sans-serif;
+
+
+    margin: 0;
+    padding: 0;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--back1);
+    margin: 0%;
+    width: 100vw;
+    height: 100vh;
+    
+    
+}
+
+.popup-wrapper #confirma_log {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--back1);
+    color:black;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 32px;
+    border-radius: 10px 0px;
+    transform: scale(2);
+    position: relative;
+    bottom: 80px;
+
+}
+.popup-wrapper {
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.popup-wrapper img {
+    position: relative;
+    transform: scale(0.4);
+    bottom: 50px;
+}
+
+.popup-wrapper h1 {
+    
+    position: relative;
+    bottom: 90px;
+
+}
+
+.popup-wrapper .input_info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+.popup-wrapper_ input {
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    margin-bottom: 40px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.popup-wrapper .n_login{
+    display: block;
+    flex-direction: column;
+    position: relative;
+    bottom: 50px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 21px;
+}
+.popup-wrapper .n_login a{
+    color: var(--formtit);
+    text-decoration: none;
+}
+
+.popup {
+    font-family:var(--fontbut_hotbar) ;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 500px;
+    margin: 10% auto;
+    padding: 24px;
+    padding-top: 100px;
+    background: white;
+    position: relative;
+    border-radius: 20px 0px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px var(--back2);
+    
+
+}
+
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+
+/*cadastro*/
+
+.popup-wrapper_cadastro #confirma_log {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--back1);
+    color:black;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 32px;
+    border-radius: 10px 0px;
+    transform: scale(2);
+    position: relative;
+    bottom: 10px;
+
+}
+
+
+.popup-wrapper_cadastro {
+    display: ;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+
+}
+.popup_cadastro {
+    bottom: 110px;
+}
+
+.popup-wrapper_cadastro img {
+    position: relative;
+    transform: scale(0.4);
+    bottom: 50px;
+}
+
+.popup-wrapper_cadastro h1 {
+    
+    position: relative;
+    bottom: 90px;
+
+}
+
+.popup-wrapper_cadastro .input_info_geral {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+.popup-wrapper_cadastro input {
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    margin-bottom: 20px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.popup-wrapper_cadastro .input_email {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.popup-wrapper_cadastro .opcao {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    right: 100px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+
+.popup_cadastro .opcao #cc{
+    border: none;
+    background-color: white;
+    position: absolute;
+    border-radius: 1px;
+    left: 150px;
+    padding-right: 200px;
+    padding-top: 15px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 20px;
+    border: none;
+    
+}
+
+
+.popup_cadastro {
+    font-family:var(--fontbut_hotbar) ;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 850px;
+    margin: 10% auto;
+    padding: 24px;
+    padding-top: 100px;
+    background: white;
+    position: relative;
+    border-radius: 20px 0px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px var(--back2);
+    
+
+}
+
+.popup-close_cadastro {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+

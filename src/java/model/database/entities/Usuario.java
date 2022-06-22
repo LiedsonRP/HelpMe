@@ -4,26 +4,24 @@
  */
 package model.database.entities;
 
+
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import model.database.dao.UsuarioDAO;
 
 /**
  *
  * @author lieds
  */
-public class Usuario {          
+public abstract class Usuario {          
     
     private int id_usuario;
     private String matricula;
     private String nome_completo;
-    private String senha;
-    private String tipo_usuario;
-    private Date data_nascimento;    
-    private String autodescricao;
-    private ArrayList<ContatoUsuario> numCelularList = new ArrayList<>();
-    private ArrayList<EmailUsuario> numEmailList = new ArrayList<>();
+    private String senha;    
+    private Date data_nascimento;   
+    private String tipo_usuario;        
 
     public String getMatricula() {
         return matricula;
@@ -68,15 +66,7 @@ public class Usuario {
 
     public void setTipo_usuario(String tipo_usuario) {
         this.tipo_usuario = tipo_usuario;
-    }            
-
-    public String getAutodescricao() {
-        return autodescricao;
-    }
-
-    public void setAutodescricao(String autodescricao) {
-        this.autodescricao = autodescricao;
-    }
+    }                
 
     public int getId_usuario() {
         return id_usuario;

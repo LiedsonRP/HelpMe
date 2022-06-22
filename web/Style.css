@@ -34,13 +34,19 @@
     box-sizing: border-box;
 }
 
-body {
+#oi {
     background-color: var(--back1);
-    margin: 0%;
-    width: 100vw;
+    margin: 0;
+    width: 98vw;
     height: 100vh;
+    max-width: 100vw;
+    min-width: 320px;
     
     
+}
+
+.xau {
+    overflow: hidden;
 }
 
 .popup-wrapper #confirma_log {
@@ -58,20 +64,24 @@ body {
 
 }
 .popup-wrapper {
-    display: block;
+    display: flex;
     overflow: hidden;
     background: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
+    visibility: hidden;
 
 }
+
+
 
 .popup-wrapper img {
     position: relative;
     transform: scale(0.4);
     bottom: 50px;
+    width: 100%;
 }
 
 .popup-wrapper h1 {
@@ -121,11 +131,12 @@ body {
     width: 100%;
     max-width: 500px;
     height: 100%;
-    max-height: 530px;
+    max-height: 630px;
     margin: 10% auto;
     padding: 24px;
     background: white;
     position: relative;
+    bottom: 90px;
     border-radius: 20px 0px;
     border: 2px solid #000000;
     box-shadow: 5px 5px var(--back2);
@@ -138,8 +149,10 @@ body {
     top: 5px;
     right: 15px;
     cursor: pointer;
+    
 }
 
+/*Home*/
 
 .botao {
     
@@ -149,6 +162,8 @@ body {
     background-color: var(--butoomCor);
     font-size: 1em;
     border-radius: 3px;
+    max-width: 100%;
+    min-width: 320px;
 
 }
 
@@ -161,6 +176,8 @@ header {
     margin: 0%;
     padding-left: 40px;
     padding-right: 40px;
+    max-width: 100%;
+    min-width: 320px;
     
     
 }
@@ -170,6 +187,8 @@ header #cabecalho {
     justify-content: space-between;
     margin-top:50px;
     padding-top: 40px;
+    max-width: 100%;
+    min-width: 320px;
     
 }
 
@@ -177,6 +196,7 @@ header .imgprime {
     background-position-x: 23px;
     width: 34%;
     margin-left: 30px;
+
     
     
 }
@@ -187,7 +207,7 @@ header .imgprime img {
     margin-right: 33px;
     border-radius: 0px 5px; 
     margin-bottom: 40px;
-    
+    width: 100%;
     
 }
 
@@ -196,7 +216,8 @@ header #cabecalho .instruindo{
     height: 325px;
     padding-left: 40px;
     padding-right: 60px;
-    
+    max-width: 100%;
+    min-width: 320px;
     
 }
 
@@ -204,6 +225,8 @@ header #cabecalho .instruindo h1{
     font-family: var(--fonth1_meexplica);
     font-weight: 400;
     font-size: 50px;
+    max-width: 100%;
+    min-width: 320px;
 }
 
 header #cabecalho .instruindo p{
@@ -211,6 +234,8 @@ header #cabecalho .instruindo p{
     font-weight: 400;
     font-size: 22px;
     width: 80%;
+    max-width: 100%;
+    min-width: 320px;
     
 }
 
@@ -218,9 +243,12 @@ header #cabecalho .instruindo a{
     font-family: var(--fontbut);
     font-weight: 400;
     font-size: 22px;
+    max-width: 100%;
+    min-width: 320px;
 }
 
 
+/*nav*/
 
 nav {
     width: auto;
@@ -231,6 +259,8 @@ nav {
     font-size: 30px;
     color : var(--butoomcor_home);
     padding-top: 15px;
+    max-width: 100%;
+    min-width: 320px;
 }
 
 nav #cl {
@@ -239,6 +269,9 @@ nav #cl {
     justify-content: space-evenly;
     width: 25%;
     margin-bottom: 0%;
+    max-width: 100%;
+    min-width: 320px;
+    
     
 }
 
@@ -253,6 +286,7 @@ nav #cl #lg{
     font-weight: 700;
     font-size: 30px;
     border: none;
+    
 }
 
 nav #cl #cadastro {
@@ -264,24 +298,34 @@ nav #cl #cadastro {
     font-family: var(--fontbut_hotbar);
     font-weight: 700;
     font-size: 30px;
-    border: none    ;
+    border: none;
+    
 }
 
 nav a {
-        text-decoration: none;
-        color: black;
-        font-weight: 800;
-        font-size: 32px;
-        font-family: Asap, serif; 
-        margin-bottom: 0;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 32px;
+    font-family: Asap, serif; 
+    margin-bottom: 0;
+    max-width: 100%;
+    min-width: 320px;
 }
 
+/*Serviços*/
+
+.sumir {
+    visibility:hidden;
+}
 #Serviços {
     width: 100%;
     background-color: var(--back2);
     height: 850px;
     margin: 0%;
     padding: 0%;
+    max-width: 100%;
+    min-width: 320px;
 }
 
 #Serviços h1 {
@@ -292,15 +336,19 @@ nav a {
     text-align: center;
     margin: 0;
     padding: 0;
+    
 }
 
 #Serviços .clientes {
+    position: absolute;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 98vw;
     margin-top: 0;
     padding-top: 0;
     display: flex;
+    max-width: 100%;
+    min-width: 320px;
     
 }
 
@@ -313,6 +361,8 @@ nav a {
     text-align: center;
     flex-direction: column;
     border-radius: 0px 0px 20px 20px;
+    max-width: 100%;
+    min-width: 320px;
 
 
 }
@@ -325,6 +375,13 @@ nav a {
     text-align: center;
     flex-direction: column;
     border-radius: 0px 0px 20px 20px;
+    max-width: 100%;
+    min-width: 320px;
+
+}
+
+#Serviço .clientes img{
+    width: 100%;
 
 }
 
@@ -333,6 +390,7 @@ nav a {
     font-family: var(--font-paragrafo);
     font-weight: 400;
     font-size: 27px;
+    
    
 }
 
@@ -345,6 +403,7 @@ nav a {
     border-radius: 20px;
     margin: auto;
     
+    
 }
 
 
@@ -353,166 +412,191 @@ nav a {
     font-family: var(--font-paragrafo);
     font-weight: 400;
     font-size: 27px;
+    
    
 }
 
+/*Informação*/
 
 #info {
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
     display: flex;
-    background-color: var(--back1);
-    width: 100vw;
+    position: absolute;
     flex-direction: column;
-    text-align: center;
+    max-width: 100%;
+    min-width: 320px;
 }
 
 #info h1 {
-    
+    display: flex;
     font-family: var(--fontbut_hotbar);
     font-weight: 700;
-    font-size:50px;
+    font-size: 50px;
+    text-align: center;
+    padding-left: 200px;
     
-
 }
 
 #info .conteudo {
     display: flex;
-    
-}
-
-#info .paragrafo3{
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
-    font-size: 31px;
-}
-
-#info .paragrafo3 .p1 p {
-    background-color: var(--textback3);
-    padding-bottom: 30px;
-    padding-top: 20px;
-    padding-left: 15px;
-    margin-left: 20px;
-    margin-bottom: 0;
-    width: 90%;
-    text-align: left;
-    
-   
-}
-#info .paragrafo3 .p2 p {
-    background-color: var(--textback3);
-    padding-bottom: 30px;
-    padding-top: 20px;
-    padding-left: 15px;
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 90%;
-    text-align: left;
-    
-    
-}
-
-
-#info .img_juntos{
-    display: flex;
-    position: relative;
-    transform: scale(0.9);
-    left: 19px;
-    bottom: 30px;
-
-}
-
-#Contato {
-    display: flex;
-    background-color: var(--back3);
-    text-align: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-#Contato h1 {
-    width: 50%;
-    font-family: var(--fontbut);
-    color: white;
-    font-weight: 400;
-    font-size: 53px;
-    position: relative;
-    top: 70px;
-
-
-}
-
-#Contato .cont_loja {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    
-    position: relative;
-    top: 50px;
-    
-    
-}
-#Contato .cont_loja .imgs_cont {
-    display: flex;
-    
     flex-direction: row;
-    transform: scale(0.9);
-    justify-content: space-evenly;
+}
+
+#info .conteudo .paragrafo3 {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-paragrafo);
+    width: 600px;
+    margin-left: 10px;
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 31px;    
     
+}
+
+
+#info .conteudo .paragrafo3 .p1 p{
+    display: flex;
+    background-color: var(--textback3);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 5px;
 
 }
 
-#Contato .oi {
+
+#info .conteudo .paragrafo3 .p2 p{
+    display: flex;
+    background-color: var(--textback3);
+    padding-left: 10px;
+    padding-right: 1px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 5px;
+
+}
+#info .conteudo img {
+    display: flex;
+    
+    transform: scale(0.9);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*Contato*/
+
+#Contato{   
+    width: 100%;
+    height: 75vh;
+    display: flex;
     position: relative;
-    top: 15px;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 320px;
+    background-color: var(--back3);
 }
 
-#Contato .cont_loja .logo {
- 
-    transform: scale(0.6);
+#Contato h1{
+    display: flex;
+    font-family: var(--fontbut);
+    font-weight: 400;
+    font-size: 51px;
+    color: #f8efef;
+    padding-left: 100px;
+     
+}
+
+#Contato .info_contato{
+    display: flex;
+    flex-direction: column;
+}
+
+#Contato .info_contato .imgs_cont{
+    width: 610px;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Contato .info_contato .imgs_cont .oi {
+    margin-top: 10px;
+}
+
+#Contato .info_contato .logo {
+    display: flex;
+    padding-left: 200px;
+    margin-top: 60px;
 }
 
 #Contato .paragrafo4 {
-    color: white;
-    font-family:var(--font-paragrafo) ;
+    display: flex;
+    font-family: var(--font-paragrafo);
     font-weight: 400;
     font-size: 27px;
-    width: 45%;
-    text-align: left;
-    position: relative;
-    left: 50px;
+    width: 550px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+#Contato h2 {
+    display: flex;
+    height: 150px;
+    width: 470px;
+    padding-top: 17px;
+    position: absolute;
+    left: 670px;
+    background-color: var(--formtit);
+    color: var(--text_fim);
+    font-weight: 400;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#Contato form{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 670px;
+    top: 190px;
+    background-color: var(--formback);
+    padding: 40px 37px 40px 37px;
+    border-radius: 0px 0px 20px 20px;
     
 }
 
-#Contato .duvidas {
-    background-color: var(--formtit);
-    font-family: var(--fontbut);
-    color: var(--text_fim);
+#Contato form input {
+    font-family: var(--font-paragrafo);
     font-weight: 400;
-    font-size: 64px;
-    width: 50%;
-
-    position: relative;
-    left: 590px;
-    bottom: 737px;
-    border-radius:20px 20px 0px 0px;
-
-}
-
-#Contato form {
+    font-size: 29px;
     background-color: var(--formback);
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    color: var(--back2);
-    position: relative;
-    bottom: 790px;
-    left: 590px;
-    border-radius: 0px 0px 20px 20px;
-    padding-bottom: 20px;
-    padding-top: 25px;
-    align-items: center;
-    box-shadow: 5px 10px grey;   
+    border-top: none;
+    border-left: none;
+    border-right: none;  
+    
 }
+
+#Contato form textarea{
+    background-color: var(--formback);
+    margin-top: 10px;
+    border-radius: 20px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 25px;
+    border: 2x solid;
+}
+
+/*
+
+
 
 #Contato form input {
     justify-content: space-between;
@@ -547,11 +631,158 @@ nav a {
     
     margin-top: 30px;
 
-} 
+}  */
+
+
+/*Cadastro*/
+
+.ola{
+	opacity: 1;
+	display: block;
+	transform: scale(1.0);
+}
+
+
+.popup-wrapper_cadastro #confirma_log {
+    display: block;
+    margin: 20px auto;
+    background-color: var(--back1);
+    color:black;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 32px;
+    border-radius: 10px 0px;
+    transform: scale(2);
+    position: relative;
+    bottom: 10px;
+}
+
+
+.popup-wrapper_cadastro {
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    display: block;
+    
+}
+
+.popup_cadastro {
+    bottom: 110px;
+    
+}
+
+.popup-wrapper_cadastro img {
+    position: relative;
+    transform: scale(0.4);
+    bottom: 50px;
+}
+
+.popup-wrapper_cadastro h1 {
+    
+    position: relative;
+    bottom: 90px;
+
+}
+
+.popup-wrapper_cadastro .input_info_geral {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+.popup-wrapper_cadastro input {
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    margin-bottom: 20px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.popup-wrapper_cadastro .input_email {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    left: 28px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.popup-wrapper_cadastro .opcao {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    right: 100px;
+    width: 100%;
+    max-width: 400px;
+    
+}
+
+.popup_cadastro .opcao #cc{
+    border: none;
+    background-color: white;
+    position: absolute;
+    border-radius: 1px;
+    left: 150px;
+    padding-right: 200px;
+    padding-top: 15px;
+    font-family: var(--font-paragrafo);
+    font-weight: 400;
+    font-size: 20px;
+    border: none;
+    
+}
+
+
+.popup_cadastro {
+    font-family:var(--fontbut_hotbar) ;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 850px;
+    margin: 10% auto;
+    padding: 24px;
+    padding-top: 100px;
+    background: white;
+    position: relative;
+    border-radius: 20px 0px;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px var(--back2);
+    
+    
+
+}
+
+.popup-close_cadastro {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.aperta{
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1.0);
+    
+}
 
 
 
-
-
+/*Responsividade*/
 
 

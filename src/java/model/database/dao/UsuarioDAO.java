@@ -4,41 +4,36 @@
  */
 package model.database.dao;
 
-import model.database.entities.Usuario;
-import model.database.Conexao;
-
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.PreparedStatement;
-
 import java.text.ParseException;
-
-import java.util.List;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
+import model.util.Conexao;
+import model.database.entities.Aluno;
 
 /**
  *
  * @author lieds
  */
-public class UsuarioDAO {            
-    public List<Usuario> selectAll() {                                        
+public class UsuarioDAO {
+    
+    public List<Aluno> selectAllUsers() {                                        
         
         String sql;
-        ArrayList<Usuario> usuarioList = new ArrayList<>();
+        ArrayList<Aluno> usuarioList = new ArrayList<>();
         
         try {
             sql = "SELECT * FROM usuario";
             ResultSet data = new Conexao().executeQuery(sql);
             
             while (data.next()) {                
-                Usuario user = new Usuario();                
+                Aluno user = new Aluno();                
                 user.setMatricula(data.getString("matricula"));
                 user.setNome_completo(data.getString("nome_completo"));                
                 user.setData_nascimento(data.getDate("data_nascimento"));
-                user.setTipo_usuario(data.getString("tipo_usuario"));
-                user.setAutodescricao(data.getString("autodescricao"));
+                user.setTipo_usuario(data.getString("tipo_usuario"));                
                 
                 usuarioList.add(user);
             }
@@ -50,10 +45,10 @@ public class UsuarioDAO {
         }
         
         return usuarioList;
-    }
+    }       
     
-    public Usuario selectUserById(int id_user) throws ParseException {
-        Usuario user = new Usuario();
+    public Aluno selectUserById(int id_user) throws ParseException {
+        Aluno user = new Aluno();
         
         try {
             String sql = "SELECT * FROM usuario WHERE id_usuario = ?";
@@ -69,8 +64,7 @@ public class UsuarioDAO {
             user.setNome_completo(data.getString("nome_completo"));
             user.setSenha(data.getString("senha"));
             user.setData_nascimento(data.getDate("data_nascimento"));
-            user.setTipo_usuario(data.getString("tipo_usuario"));
-            user.setAutodescricao(data.getString("autodescricao"));
+            user.setTipo_usuario(data.getString("tipo_usuario"));            
             
             
         } catch (SQLException ex) {
@@ -78,35 +72,6 @@ public class UsuarioDAO {
         }
                 
         return user;
-    }
-    
-    public boolean insertUser(Usuario user) {
-        String sql;
-        PreparedStatement stmt = null;        
-        
-        try {            
-            
-            Conexao conn = new Conexao();            
-            sql = "INSERT INTO usuario (matricula, nome_completo, senha, data_nascimento, tipo_usuario, autodescricao)"
-                    + " VALUES (?, ?, ?, ?, ?, ?)";
-            
-            stmt = conn.getConnection().prepareStatement(sql);                                   
-            
-            stmt.setString(1, user.getMatricula());
-            stmt.setString(2, user.getNome_completo());
-            stmt.setString(3, user.getSenha());
-            stmt.setDate(4, new java.sql.Date(user.getData_nascimento().getTime()));
-            stmt.setString(5, user.getTipo_usuario());
-            stmt.setString(6, user.getAutodescricao());                                               
-                        
-            stmt.executeUpdate();        
-            
-            return true;
-            
-        } catch (SQLException ex) {
-            System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
-            return false;
-        }                
     }
     
     public int selectMaxID() {
@@ -126,4 +91,28 @@ public class UsuarioDAO {
         
         return maxID;
     }
+    
+    public String getSenhaUsuarioById(int id_usuario) {
+        String password = "";
+        
+        try {
+            String sql = "SELECT senha as senha FROM usuario WHERE id_usuario = ?";            
+            PreparedStatement stmt = new Conexao().getConnection().prepareStatement(sql);
+            
+            stmt.setInt(1, id_usuario);
+            
+            ResultSet data = stmt.executeQuery();                        
+            
+            data.next();
+            
+            password = data.getString("senha");
+            
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO CAPTURAR O SENHA!");            
+        }
+
+        return password;
+        
+    }
+        
 }
