@@ -17,7 +17,7 @@ import java.util.List;
  * @author lieds
  */
 public class MunicipioDAO {
-    private String sql = "";
+   /* private String sql = "";
     private ArrayList<Municipio> municipioList = new ArrayList<>();
     
     public List<Municipio> select() {        
@@ -38,5 +38,5 @@ public class MunicipioDAO {
         }
         
         return municipioList;
-    }
+    }*/
 }

@@ -2,8 +2,6 @@ package model.util;
 //Classes necessárias para uso de Banco de dados //
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 //Início da classe de conexão//
 public class Conexao {
@@ -15,15 +13,33 @@ public class Conexao {
     private Connection connection;
     private Statement statement;
 
+    public Conexao(String servidor, String database, String user, String password) throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://" + servidor + "/" + database, user, password);
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Nao foi possıvel encontrar a classe do " + "Driver do MySQL");
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possıvel conectar ao servidor");
+            throw ex;
+        }
+        try {
+            statement = connection.createStatement();
+        } catch (SQLException ex) {
+            System.out.println("Nao foi poss´ıvel criar a statement");
+            throw ex;
+        }
+    }
+
     public Conexao() {
-        try {            
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost" + "/helpmedb", "root", "1234");
-            System.out.println("conectou!");                    
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost" + "/aula", "root", "@ifpa2016");
+            System.out.println("conectou!");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Nao foi possıvel encontrar a classe " + "do Driver do MySQL" + ex);
         } catch (SQLException ex) {
             System.out.println("Nao foi poss´ıvel conectar ao servidor" + ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             statement = connection.createStatement();
@@ -76,29 +92,21 @@ public class Conexao {
         }
     }
 
-    public static String getStatus() {
-        return status;
-    }
+    /**
+     * * Retorna o maior n´umero de um campo da tabela se ele * for um inteiro.
+     * Assim, n~ao teremos nenhum ID igual a outro.
+     */
+    public int retornaIDMax(String tabela) {
+        try {
+            String sql = "SELECT max(ID) as contador FROM " + tabela;
+            ResultSet rs = this.executeQuery(sql);
+            rs.next();
+            return rs.getInt("contador") + 1;
+        } catch (SQLException e) {
+            System.out.println("Erro na selecao do ID Maximo" + e);
+            e.printStackTrace();
 
-    public static void setStatus(String status) {
-        Conexao.status = status;
+            return 0;
+        }
     }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
-
-    public Statement getStatement() {
-        return statement;
-    }
-
-    public void setStatement(Statement statement) {
-        this.statement = statement;
-    }
-    
-    
 }

@@ -13,7 +13,7 @@ import model.util.Conexao;
  * @author lieds
  */
 public class ContatoUsuarioDAO {
-    public boolean insertUserContato(ContatoUsuario contato) {
+    /*public boolean insertUserContato(ContatoUsuario contato) {
         String sql;
         PreparedStatement stmt = null;        
         
@@ -36,5 +36,5 @@ public class ContatoUsuarioDAO {
             System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
             return false;
         }                
-    }
+    }*/
 }

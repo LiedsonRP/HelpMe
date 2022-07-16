@@ -4,28 +4,23 @@
  */
 package controller;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 
-import model.database.entities.Aluno;
-import model.database.entities.Professor;
-import model.database.entities.EmailUsuario;
-import model.database.entities.ContatoUsuario;
 import model.util.Cadastro;
 
-
+import model.util.FormValidation;
 
 /**
  *
  * @author lieds
  */
+@WebServlet(name = "CadastroServlet", urlPatterns = {"/CadastroServlet"})
 public class CadastroServlet extends HttpServlet {
 
     /**
@@ -39,8 +34,10 @@ public class CadastroServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */          
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -68,44 +65,29 @@ public class CadastroServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException {        
         
-        boolean goneCadastrado = false;
-        EmailUsuario userEmail = new EmailUsuario();
-        ContatoUsuario userContato = new ContatoUsuario();
+        String nomeUsuario = request.getParameter("cadastro_nome");
+        String usuarioSenha = request.getParameter("cadastro_senha");
+        String usuarioData_Nascimento = request.getParameter("cadastro_data_nasc");
+        String usuarioEmail = request.getParameter("cadastro_email");
+        String usuarioNumCelular = request.getParameter("cadastro_celular");
+        String tipoUsuario = request.getParameter("cargo");  
         
-        String nome = request.getParameter("cadastro_nome");
-        String senha = request.getParameter("cadastro_senha");
-        String data = request.getParameter("cadastro_data_nasc");
-        String emailForm = request.getParameter("cadastro_email");
-        String contatoForm = request.getParameter("cadastro_celular");
-        String tipo_usuario = request.getParameter("cargo");
-        
-        if (tipo_usuario.equals("Aluno")) {
-            Aluno aluno = new Aluno();
+        if (new FormValidation().checkEmailExists(usuarioEmail)) {
             
-            aluno.setNome_completo(nome);            
-            aluno.setSenha(senha);
-            
-            try {
-                aluno.setData_nascimento(data);
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastroServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }             
-            
-            /*
-            userEmail.setId_usuario(aluno.getId_usuario());
-            userEmail.setEmail(emailForm);
-            
-            userContato.setId_usuario(aluno.getId_usuario());
-            userContato.setContato(contatoForm);*/
-            
-            goneCadastrado = new Cadastro().cadastrar(aluno, userEmail, userContato);
         }
-        
-        if (goneCadastrado) {            
-            response.sendRedirect("./perfil.html");
+                        
+        if (tipoUsuario.equals("aluno")) {   
+            
+            boolean confCadastro = new Cadastro().cadastrarAluno(nomeUsuario, usuarioSenha, usuarioData_Nascimento, usuarioEmail, usuarioNumCelular);
+            
+            if (confCadastro) {
+                response.sendRedirect("./aluno/perfil_aluno.html");
+            }
+            
+        } else {
+            //Redirecionar o professor para o segundo formulário            
         }
         
     }

@@ -21,8 +21,8 @@
                     <h1>Crie sua conta, e deixe a gente dá um Help em você.</h1>
                     <div class="input_info_geral">
                         <input type="text" name="cadastro_nome" placeholder="Nome Completo" id="cm">
-                        <input type="text" name="cadastro_senha" placeholder="Senha" id="cs">
-                        <input type="text" name="cadastro_repita_senha" placeholder="Repita a senha" id="crs">
+                        <input type="password" name="cadastro_senha" placeholder="Senha" id="cs">
+                        <input type="password" name="cadastro_repita_senha" placeholder="Repita a senha" id="crs">
                         <input type="date" name="cadastro_data_nasc" placeholder=" Data de Nascimento" id="cdn">
                     </div>
                     <h1>Dados de Contato:</h1>
@@ -32,17 +32,15 @@
                     </div>
 
                     <h1>Você é aluno ou professor</h1>
-                    <div class="opcao">
-                        <form action="">
-                            <select name="cargo"  id="cc">
-                                <option value="qual">Tipo de Conta</option>
-                                <option value="aluno">Aluno</option>
-                                <option value="prof">Professor</option>
-                            </select>
-                        </form>
+                    <div class="opcao">                        
+                        <select name="cargo"  id="cc">
+                            <option value="qual">Tipo de Conta</option>
+                            <option value="aluno">Aluno</option>
+                            <option value="prof">Professor</option>
+                        </select>                        
                     </div>
 
-                    <button id="confirma_log">Cadastrar</button>
+                    <button type="submit" id="confirma_log">Cadastrar</button>
                 </div>
             </div>
         </div> 
@@ -59,7 +57,7 @@
                     <h1>Faça seu login</h1>
                     <div class="input_info">
                         <input type="text" name="login_email" placeholder="E-mail" id="le">
-                        <input type="text" name="login_senha" placeholder="Senha" id="ls">
+                        <input type="password" name="login_senha" placeholder="Senha" id="ls">
                     </div>
                     <button type="submit" id="confirma_log">Login</button>
                     <div class="n_login">

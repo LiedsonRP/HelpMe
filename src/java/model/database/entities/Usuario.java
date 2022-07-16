@@ -17,11 +17,22 @@ import model.database.dao.UsuarioDAO;
 public abstract class Usuario {          
     
     private int id_usuario;
-    private String matricula;
+    protected String matricula;
     private String nome_completo;
     private String senha;    
     private Date data_nascimento;   
     private String tipo_usuario;        
+
+    public Usuario(String nome_completo, String senha, String data_nascimento) {
+        this.id_usuario = new UsuarioDAO().selectMaxID() + 1;        
+        this.nome_completo = nome_completo;
+        this.senha = senha;
+        this.setData_nascimento(data_nascimento);        
+    }    
+
+    public Usuario() {
+    }
+            
 
     public String getMatricula() {
         return matricula;
@@ -30,6 +41,8 @@ public abstract class Usuario {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+    
+    public abstract void generateMatricula();
 
     public String getNome_completo() {
         return nome_completo;
@@ -51,13 +64,13 @@ public abstract class Usuario {
         return data_nascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) throws ParseException {
-        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
-        this.data_nascimento = formater.parse(data_nascimento);
-    }
-
-    public void setData_nascimento(Date data_nascimento) throws ParseException {        
-        this.data_nascimento = data_nascimento;
+    public void setData_nascimento(String data_nascimento) {
+        try {
+            SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+            this.data_nascimento = formater.parse(data_nascimento);
+        } catch (ParseException ex) {
+            System.out.println("ERRO AO CONVERTER A DATA " + ex);;
+        }
     }
 
     public String getTipo_usuario() {

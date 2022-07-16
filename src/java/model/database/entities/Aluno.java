@@ -4,21 +4,49 @@
  */
 package model.database.entities;
 
-import model.database.dao.UsuarioDAO;
 import model.util.CreateMatricula;
 
 /**
  *
  * @author lieds
  */
-public class Aluno extends Usuario {
-    private final String TIPO_USUARIO = "Aluno";    
-    
-    
-    public Aluno() {
-        this.setId_usuario(new UsuarioDAO().selectMaxID() + 1);        
-        this.setMatricula(new CreateMatricula().createCodMatriculaAluno());
+public final class Aluno extends Usuario {
+    private final String TIPO_USUARIO = "Aluno"; 
+    private EmailUsuario alunoEmail;
+    private ContatoUsuario alunoContato;
+
+    public Aluno(String nome_completo, String senha, String data_nascimento) {
+        super(nome_completo, senha, data_nascimento);                                
         this.setTipo_usuario(TIPO_USUARIO);
+        this.generateMatricula();           
+    } 
+
+    public Aluno() {
+    }
+
+    public EmailUsuario getAlunoEmail() {
+        return alunoEmail;
+    }
+
+    public void setAlunoEmail(EmailUsuario alunoEmail) {
+        this.alunoEmail = alunoEmail;
+    }
+
+    public ContatoUsuario getAlunoContato() {
+        return alunoContato;
+    }
+
+    public void setAlunoContato(ContatoUsuario alunoContato) {
+        this.alunoContato = alunoContato;
+    }
+
+    @Override
+    public void generateMatricula() {
+        CreateMatricula matricGenerator = new CreateMatricula();
+        String matricula = matricGenerator.createCodMatriculaAluno();
+        
+        this.matricula = matricula;
+        System.out.println(matricula);
     }
     
 }

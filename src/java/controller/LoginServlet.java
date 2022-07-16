@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
         
         try {
             if(new Login().validateInfo(email, senha)) {
-                response.sendRedirect("./perfil.html");
+                response.sendRedirect("./aluno/perfil_aluno.html");
             } else {
                 response.sendRedirect("./");
             }

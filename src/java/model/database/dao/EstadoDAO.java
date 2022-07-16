@@ -18,7 +18,7 @@ import java.util.List;
  * @author lieds
  */
 public class EstadoDAO {    
-    private String sql = "";
+   /* private String sql = "";
     private ArrayList<Estado> estadoList = new ArrayList<>();
 
     public List<Estado> select() {                                 
@@ -40,6 +40,6 @@ public class EstadoDAO {
         }
         
         return estadoList;
-    }
+    }*/
         
 }

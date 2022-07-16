@@ -10,8 +10,7 @@ package model.database.entities;
  */
 public class ContatoUsuario {
     private int id_usuario;
-    private String contato;
-    private String descricao;
+    private String contato;    
 
     public String getContato() {
         return contato;
@@ -20,14 +19,6 @@ public class ContatoUsuario {
     public void setContato(String contato) {
         this.contato = contato;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }        
 
     public int getId_usuario() {
         return id_usuario;

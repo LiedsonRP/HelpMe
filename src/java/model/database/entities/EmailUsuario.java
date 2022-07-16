@@ -10,8 +10,7 @@ package model.database.entities;
  */
 public class EmailUsuario {
     private int id_usuario;
-    private String email;
-    private String descricao;
+    private String email;    
 
     public int getId_usuario() {
         return id_usuario;
@@ -27,15 +26,5 @@ public class EmailUsuario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-    
-    
+    }       
 }

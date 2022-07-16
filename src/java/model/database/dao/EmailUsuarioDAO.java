@@ -17,7 +17,20 @@ import java.util.ArrayList;;
  * @author lieds
  */
 public class EmailUsuarioDAO {
-     public boolean insertUserEmail(EmailUsuario email) {
+
+    private Conexao conn;
+    
+    public EmailUsuarioDAO() {
+        try {
+            this.conn = new Conexao("localhost", "helpmedb", "root", "1234");
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO FAZER A CONEXÃO PELO EmailUsuarioDAO " + ex);
+        }
+    }
+    
+    
+    
+     /*public boolean insertUserEmail(EmailUsuario email) {
         String sql;
         PreparedStatement stmt = null;        
         
@@ -40,19 +53,14 @@ public class EmailUsuarioDAO {
             System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
             return false;
         }                
-    }
+    }*/
      
-    public boolean isUserEmailExists(String email) {        
-        PreparedStatement stmt;
-        Conexao conn = new Conexao();
+    public boolean isUserEmailExists(String email) {                        
         
          try {             
-             String sql = "SELECT * FROM usuario_email WHERE email LIKE ?";
+             String sql = "SELECT * FROM usuario_email WHERE email LIKE + '" + email + "'";          
              
-             stmt = conn.getConnection().prepareStatement(sql);
-             stmt.setString(1, email);
-             
-             ResultSet data = stmt.executeQuery();                        
+             ResultSet data = this.conn.executeQuery(sql);                        
              
              while (data.next()) {                 
                  return true;
@@ -61,10 +69,11 @@ public class EmailUsuarioDAO {
          } catch (SQLException ex) {
              System.out.println("ERRO AO ACESSAR O BANCO DE USUARIO");
          }
+         
         return false;
     }
     
-    public ArrayList<EmailUsuario> selectAllUsuarioEmailList(int usuario_id) {                
+    /*public ArrayList<EmailUsuario> selectAllUsuarioEmailList(int usuario_id) {                
         ArrayList<EmailUsuario> emailUsuarioList = new ArrayList<>();
         
         try {            
@@ -87,25 +96,6 @@ public class EmailUsuarioDAO {
          }
                                          
         return emailUsuarioList;
-    }
-    
-    public int selectUserIdByEmail(String email) {        
-        int id_usuario = 0;                
+    }*/
         
-         try {
-             String sql = "SELECT * FROM usuario_email WHERE email LIKE ?";
-             PreparedStatement stmt = new Conexao().getConnection().prepareStatement(sql);
-             stmt.setString(1, email);                          
-             
-             ResultSet data = stmt.executeQuery();
-             
-             data.next();             
-             id_usuario = data.getInt("fk_id_usuario");
-             
-         } catch (SQLException ex) {
-             System.out.println("ERRO AO ACESSAR BANCO DE E-MAIL");
-         }
-         
-        return id_usuario;
-    }    
 }
