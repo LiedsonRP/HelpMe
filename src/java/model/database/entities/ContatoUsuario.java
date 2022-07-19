@@ -5,12 +5,21 @@
 package model.database.entities;
 
 /**
- *
+ *  Classe que descreve o contato de celular de um usuário
+ * 
  * @author lieds
  */
 public class ContatoUsuario {
     private int id_usuario;
     private String contato;    
+    
+    public ContatoUsuario(int id_usuario, String contato) {
+        this.id_usuario = id_usuario;
+        this.contato = contato;
+    }
+
+    public ContatoUsuario() {
+    }        
 
     public String getContato() {
         return contato;

@@ -5,12 +5,21 @@
 package model.database.entities;
 
 /**
- *
+ * Classe que descreve as informações de e-mail de um usuário
+ * 
  * @author lieds
  */
 public class EmailUsuario {
     private int id_usuario;
-    private String email;    
+    private String email;  
+
+    public EmailUsuario(int id_usuario, String email) {
+        this.id_usuario = id_usuario;
+        this.email = email;
+    }
+
+    public EmailUsuario() {
+    }    
 
     public int getId_usuario() {
         return id_usuario;

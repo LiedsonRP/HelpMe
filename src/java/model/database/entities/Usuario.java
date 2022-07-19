@@ -11,7 +11,9 @@ import java.text.SimpleDateFormat;
 import model.database.dao.UsuarioDAO;
 
 /**
- *
+ * Classe abstrata usada como pai para as classes
+ * de tipo de usuário
+ * 
  * @author lieds
  */
 public abstract class Usuario {          
@@ -23,13 +25,25 @@ public abstract class Usuario {
     private Date data_nascimento;   
     private String tipo_usuario;        
 
+    /**
+     * Construtor usado para gerar um novo usuário que será 
+     * cadastrado no banco de dados
+     * 
+     * @param nome_completo - String contendo o nome do usuário
+     * @param senha - String contendo a senha do usuário
+     * @param data_nascimento - Data de nascimento do usuário no formato java.util.Date
+     */
     public Usuario(String nome_completo, String senha, String data_nascimento) {
-        this.id_usuario = new UsuarioDAO().selectMaxID() + 1;        
+        this.id_usuario = new UsuarioDAO().selectMaxID() + 1; //Adiciona o id do Usuário       
         this.nome_completo = nome_completo;
         this.senha = senha;
         this.setData_nascimento(data_nascimento);        
     }    
 
+    /**
+     * Construtor usado para quando a classe for apenas
+     * para armazenar dados de um usuário já cadastrado
+     */
     public Usuario() {
     }
             
@@ -42,6 +56,9 @@ public abstract class Usuario {
         this.matricula = matricula;
     }
     
+    /**
+     * Método abstrato que cria o código de matrícula do respectivo usuário
+     */
     public abstract void generateMatricula();
 
     public String getNome_completo() {
@@ -64,6 +81,12 @@ public abstract class Usuario {
         return data_nascimento;
     }
 
+    /**
+     * Formata uma String contendo uma data para o formato java.util.Date e 
+     * adicionar o resultado no atributo "data_nascimento"
+     * 
+     * @param data_nascimento - Data de nascimento do usuário no formato String
+     */
     public void setData_nascimento(String data_nascimento) {
         try {
             SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");

@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import model.util.CreateMatricula;
 
 /**
- *
+ * Classe que descreve um usuário do tipo Professor
+ * 
  * @author lieds
  */
 public final class Professor extends Usuario {
@@ -17,16 +18,28 @@ public final class Professor extends Usuario {
     
     private String cpf;
     private String Autodescricao;
-    private ArrayList<ContatoUsuario> numCelularList = new ArrayList<>();
-    private ArrayList<EmailUsuario> numEmailList = new ArrayList<>();
-    private String photo_file_path;
+    private ArrayList<ContatoUsuario> numCelularList = new ArrayList<>(); // Lista de contatos do professor
+    private ArrayList<EmailUsuario> numEmailList = new ArrayList<>(); //LIsta de e-mails do professor
+    private String photo_file_path; //Caminho onde está armazenado a foto de perfil do professor, caso tenha
         
+    /**
+     * Construtor usado para gerar um novo Professor que será 
+     * cadastrado no banco de dados
+     * 
+     * @param nome_completo - String contendo o nome do professor
+     * @param senha - String contendo a senha do professor
+     * @param data_nascimento - Data de nascimento do professor no formato java.util.Date
+     */
     public Professor(String nome_completo, String senha, String data_nascimento) {
         super(nome_completo, senha, data_nascimento);
         this.generateMatricula();  
         this.setTipo_usuario(TIPO_USUARIO);
     }        
 
+    /**
+     * Construtor usado para quando a classe for apenas
+     * para armazenar dados de um Professor já cadastrado
+     */
     public Professor() {
     }
        
@@ -70,6 +83,9 @@ public final class Professor extends Usuario {
         this.photo_file_path = photo_file_path;
     }
 
+    /** 
+     * Gera a matrícula de um Professor
+     */
     @Override
     public void generateMatricula() {
         CreateMatricula matricGenerator = new CreateMatricula();
