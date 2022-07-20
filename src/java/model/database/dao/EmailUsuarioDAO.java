@@ -122,7 +122,7 @@ public class EmailUsuarioDAO {
             
             while(data.next()) {
                 EmailUsuario emailRegister = new EmailUsuario();
-                emailRegister.setId_usuario(data.getInt("fk_id_usuario"));
+                emailRegister.setId_usuario(usuario_id);
                 emailRegister.setEmail(data.getString("email"));                
                 emailUsuarioList.add(emailRegister);
             }
@@ -131,6 +131,29 @@ public class EmailUsuarioDAO {
          }
                                          
         return emailUsuarioList;
+    }
+    
+    /**
+     * Deleta um E-mail cadastrado no banco de dados
+     * 
+     * @param email - String contendo o e-mail a ser apagado
+     * @return Boolean - Feedback dizendo se a operação foi concluida com sucesso
+     */
+    public boolean deleteEmail(String email) {        
+        String sql;        
+        
+        try {            
+                        
+            sql = "DELETE FROM usuario_email WHERE email LIKE '" + email + "'";
+                    
+            this.conn.executeUpdate(sql);
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
+            return false;
+        }
     }
         
 }

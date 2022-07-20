@@ -165,6 +165,40 @@ public class UsuarioDAO {
         }                
     }
     
+    /**
+     * Busca as informações de um professor no banco de dados usando o id 
+     * como parâmetro de pesquisa
+     * 
+     * @param id - id do professor
+     * @return Professor - Objeto do tipo Professor contendo as informações cadastradas no banco de dados
+     */
+    public Professor selectProfessorById(int id) {
+        Professor professor = new Professor();                
+        
+        try {
+            String sql = "SELECT * FROM usuario WHERE id_usuario = " + id;            
+                        
+            ResultSet data = conn.executeQuery(sql);                        
+            
+            data.next(); 
+            
+            professor.setId_usuario(data.getInt("id_usuario"));
+            professor.setMatricula(data.getString("matricula"));
+            professor.setNome_completo(data.getString("nome_completo"));
+            professor.setSenha(data.getString("nome_completo"));
+            professor.setData_nascimento(data.getString("data_nascimento"));
+            professor.setTipo_usuario(data.getString("tipo_usuario"));
+            professor.setAutodescricao(data.getString("autodescricao"));
+            professor.setCpf(data.getString("cpf"));
+            professor.setPhoto_file_path(data.getString("foto_perfil"));
+            
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO CAPTURAR O USUÁRIO!");                        
+        } finally {
+            return professor;
+        }                 
+    }
+    
     //USUÁRIO ALUNO
     
     /**
@@ -201,7 +235,7 @@ public class UsuarioDAO {
      * na tabela Usuário do Banco de Dados
      * 
      * @param id - id de usuário usado como referência de pesquisa
-     * @return Aluno - Retorna um objeto do tipo aluno contendo as informações cadastradas na tabela aluno
+     * @return Aluno - Retorna um objeto do tipo professor contendo as informações cadastradas na tabela professor
      */
     public Aluno selectAlunoById(int id) {
         Aluno aluno = new Aluno();                

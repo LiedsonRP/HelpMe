@@ -6,6 +6,8 @@ package model.database.entities;
 
 /**
  *
+ * Classe que descreve um Estado
+ * 
  * @author lieds
  */
 public class Estado {

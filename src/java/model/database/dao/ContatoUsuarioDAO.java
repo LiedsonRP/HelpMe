@@ -74,10 +74,60 @@ public class ContatoUsuarioDAO {
                 contatoUsuarioList.add(contato);                
             }
          } catch (SQLException ex) {
-             System.out.println("ERRO AO ACESSAR BANCO DE E-MAIL");
+             System.out.println("ERRO AO ACESSAR BANCO DE CONTATOS");
          }
                                          
         return contatoUsuarioList;
+    }
+    
+    /**
+     * Deleta as informações de um contato cadastrado no banco de dados
+     * 
+     * @param contato - Objeto com as informações do contato a ser apagado
+     * @return Boolean - Feedback dizendo se a operação foi bem sucedida
+     */
+    public boolean deleteContato(ContatoUsuario contato) {        
+        String sql;        
+        
+        try {            
+                        
+            sql = "DELETE FROM usuario_contato WHERE celular LIKE '" + contato.getContato()
+                    + "' AND fk_id_usuario = " + contato.getId_usuario();                        
+                    
+            this.conn.executeUpdate(sql);
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
+            return false;
+        }
+    }
+    
+    /**
+     * Atualiza as informações de um contato
+     * 
+     * @param contato - Objeto com as informações do contato a ser atualizado
+     * @param novoContato - String contendo o novo número de contato
+     * @return 
+     */
+    public boolean updateContato(ContatoUsuario contato, String novoContato) {
+        String sql;        
+        
+        try {            
+                        
+            sql = "UPDATE usuario_contato SET celular = '" + 
+                    novoContato + "' WHERE celular LIKE '" + contato.getContato() 
+                    + "' AND fk_id_usuario =" + contato.getId_usuario();                        
+                    
+            this.conn.executeUpdate(sql);
+            
+            return true;
+            
+        } catch (SQLException ex) {
+            System.out.println("ERRO AO EXECUTAR O UPDTADE!" + ex);
+            return false;
+        }        
     }
 
 }

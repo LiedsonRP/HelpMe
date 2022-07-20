@@ -6,6 +6,8 @@ package model.database.entities;
 
 /**
  *
+ * Classe que descreve um Município
+ * 
  * @author lieds
  */
 public class Municipio {

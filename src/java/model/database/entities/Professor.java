@@ -20,6 +20,8 @@ public final class Professor extends Usuario {
     private String Autodescricao;
     private ArrayList<ContatoUsuario> numCelularList = new ArrayList<>(); // Lista de contatos do professor
     private ArrayList<EmailUsuario> numEmailList = new ArrayList<>(); //LIsta de e-mails do professor
+    private ArrayList<Disciplina> disciplinasList = new ArrayList<>(); //Lista de disciplinas lecionadas pelo professor
+    private ArrayList<Ferramenta> ferramentasList = new ArrayList<>(); // Lista de ferramentas usadas pelo professor
     private String photo_file_path; //Caminho onde está armazenado a foto de perfil do professor, caso tenha
         
     /**
@@ -82,6 +84,14 @@ public final class Professor extends Usuario {
     public void setPhoto_file_path(String photo_file_path) {
         this.photo_file_path = photo_file_path;
     }
+
+    public ArrayList<Disciplina> getDisciplinasList() {
+        return disciplinasList;
+    }
+
+    public void setDisciplinasList(ArrayList<Disciplina> disciplinasList) {
+        this.disciplinasList = disciplinasList;
+    }        
 
     /** 
      * Gera a matrícula de um Professor

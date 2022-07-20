@@ -58,7 +58,7 @@
     </form>
 
 
-    <form method="post" action="LoginServlet">
+    <form method="post" action="LoginServelet">
         <div class="popup-wrapper" id="olamundo" >
             <div class="popup">
                 <div class="popup-close" onclick="fechar()">X</div>

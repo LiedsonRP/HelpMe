@@ -5,6 +5,7 @@
 package controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,12 +14,6 @@ import java.io.IOException;
 import model.database.dao.EmailUsuarioDAO;
 import model.database.dao.UsuarioDAO;
 
-import model.database.dao.ContatoUsuarioDAO;
-import model.database.entities.ContatoUsuario;
-
-import model.database.entities.Aluno;
-import model.database.entities.EmailUsuario;
-
 
 /**
  * Servelet que valida formulário de Login e direciona
@@ -26,6 +21,8 @@ import model.database.entities.EmailUsuario;
  * 
  * @author lieds
  */
+
+@WebServlet(name = "LoginServelet", urlPatterns = {"/LoginServelet"})
 public class LoginServlet extends HttpServlet {
 
     /**
@@ -78,32 +75,24 @@ public class LoginServlet extends HttpServlet {
         boolean isEmailExists = new EmailUsuarioDAO().isUserEmailExists(email);
         
         if (isEmailExists) { 
-            int userId = new EmailUsuarioDAO().getUserIdByEmail(email);
+            int userId = new EmailUsuarioDAO().getUserIdByEmail(email);            
             String userPassword = new UsuarioDAO().getUserPasswordById(userId);
             
             //verifica se a senha digitada está correta
             if (userPassword.equals(senha)) {
                 String tipo_usuario = new UsuarioDAO().getUserTypeById(userId);
                 
-                if (tipo_usuario.equals("Aluno")) { //Caso o tipo de usuário seja "Aluno"
-                    Aluno aluno = new UsuarioDAO().selectAlunoById(userId);
-                    
-                    //Pega o email cadastrado pelo aluno
-                    EmailUsuario alunoEmail = new EmailUsuarioDAO().selectAllUsuarioEmailList(userId).get(0);                    
-                    aluno.setAlunoEmail(alunoEmail);
-                    
-                    //pega o telefone cadastrado pelo aluno
-                    ContatoUsuario alunoContato = new ContatoUsuarioDAO().selectAllUsuarioContatoList(userId).get(0);
-                    aluno.setAlunoContato(alunoContato);
+                if (tipo_usuario.equals("Aluno")) { //Caso o tipo de usuário seja "Aluno"                   
                     
                     //redireciona para a página de perfil do aluno
-                    response.sendRedirect("./aluno/perfil_aluno.html?Aluno=" + aluno);
+                    response.sendRedirect("./aluno/perfil_aluno.html?id=" + userId);
                     
                 } else if (tipo_usuario.equals("Professor")) { //Caso o tipo de usuário seja Professor
-                    response.sendRedirect("./prof/tela_perfil_professor.html");
+                    response.sendRedirect("./prof/tela_perfil_professor.jsp?id=" + userId);                    
                 }
+                
             } else {
-                //Manda a mensagem de erro de volta ao arquivo jsp;
+                //Manda a mensagem de erro de login de volta ao arquivo jsp;
             }
         }
     }
