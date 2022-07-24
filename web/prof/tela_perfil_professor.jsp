@@ -5,7 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="controller.CreateUsuarioPerfil"
-        import="model.database.entities.Professor"%>
+        import="model.database.entities.Professor" import="model.database.entities.Ferramenta"
+        import="model.database.entities.Disciplina" import="model.database.entities.CapacitacaoEspecial"
+        import="model.database.entities.ProfessorHorario"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,9 +42,9 @@
         <div class="meios">
             <div class="capacitacao">
                 <h2><img src="imgs//maos.svg" alt="">Capacitação </h2>                
-                <p>Braile</p>
-                <p>Libras</p>
-                <p>Sindrome de Down</p>
+                <% for(CapacitacaoEspecial condicao : professor.getCapacitacaoEspecialList()) { %>
+                    <p><%=condicao.getNome_capacitEspecial()%></p>                
+                <% } %>
                 <p></p>
                 <!-- <h3><img src="help me/mais.svg" alt=""> Edita Disciplina</h3> -->
                 
@@ -50,9 +52,9 @@
 
             <div class="diciplinas">
                 <h2><img src="imgs//livro.svg" alt="">diciplinas </h2>
-                <p>Lingua Inglesa</p>
-                <p>Lingua Portuguesa</p>
-                <p>Lingua Espanhola</p>
+                <% for(Disciplina disciplina : professor.getDisciplinasList()) { %>
+                    <p><%=disciplina.getNome_disciplina()%></p>                
+                <% } %>
                 <p></p>
                 <!-- <h3><img src="help me/mais.svg" alt=""> Edita Disciplina</h3> -->
         
@@ -60,9 +62,9 @@
 
             <div class="ferramentas">
                 <h2><img src="imgs//ferramentas.svg" alt=""> Ferramentas</h2>
-                <p>Google Meet</p>
-                <p>Slack</p>
-                <p>Google Classroom</p>
+                <% for(Ferramenta ferramenta : professor.getFerramentasList()) { %>
+                    <p><%=ferramenta.getNome_ferramenta()%></p>                
+                <% } %>
                 <p></p>
                 <!-- <h3><img src="help me/mais.svg" alt=""> Edita Disciplina</h3> -->
 
@@ -85,32 +87,16 @@
                     <td>Hora Fim</td>
                     <td>Ensino</td>
                 </tr>
-
-                <tr>
-                    <td >Segunda</td>
-                    <td>Lingua Portuguesa</td>
-                    <td>08:40</td>
-                    <td>10:40</td>
-                    <td>Presencial</td>
-                </tr>
-
-                <tr>
-                    <td>Segunda</td>
-                    <td>Lingua Inglesa</td>
-                    <td>18:00</td>
-                    <td>20:00</td>
-                    <td>Remoto</td>
-                </tr>
-
-                <tr>
-                    <td>Quinta</td>
-                    <td>Lingua Espanhola</td>
-                    <td>9:00</td>
-                    <td>12:00</td>
-                    <td>Remoto</td>
-                </tr>
-
                 
+                <%for (ProfessorHorario horario : professor.getProfHorarioList()) {%>
+                    <tr>
+                        <td ><%=horario.getDia_semana() %></td>
+                        <td><%=horario.getDisciplina().getNome_disciplina() %></td>
+                        <td><%=horario.getHora_inicio() %></td>
+                        <td><%=horario.getHora_fim() %></td>
+                        <td><%=horario.getForma_ensino() %></td>
+                    </tr>  
+                <% } %>
 
             </table>
 

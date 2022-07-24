@@ -22,6 +22,8 @@ public final class Professor extends Usuario {
     private ArrayList<EmailUsuario> numEmailList = new ArrayList<>(); //LIsta de e-mails do professor
     private ArrayList<Disciplina> disciplinasList = new ArrayList<>(); //Lista de disciplinas lecionadas pelo professor
     private ArrayList<Ferramenta> ferramentasList = new ArrayList<>(); // Lista de ferramentas usadas pelo professor
+    private ArrayList<CapacitacaoEspecial> capacitacaoEspecialList = new ArrayList<>(); //Lista de capacitações especiais
+    private ArrayList<ProfessorHorario> profHorarioList = new ArrayList<>();//Lista de horários de um professor
     private String photo_file_path; //Caminho onde está armazenado a foto de perfil do professor, caso tenha
         
     /**
@@ -93,6 +95,31 @@ public final class Professor extends Usuario {
         this.disciplinasList = disciplinasList;
     }        
 
+    public ArrayList<Ferramenta> getFerramentasList() {
+        return ferramentasList;
+    }
+
+    public void setFerramentasList(ArrayList<Ferramenta> ferramentasList) {
+        this.ferramentasList = ferramentasList;
+    }        
+
+    public ArrayList<CapacitacaoEspecial> getCapacitacaoEspecialList() {
+        return capacitacaoEspecialList;
+    }
+
+    public void setCapacitacaoEspecialList(ArrayList<CapacitacaoEspecial> capacitacaoEspecialList) {
+        this.capacitacaoEspecialList = capacitacaoEspecialList;
+    }    
+
+    public ArrayList<ProfessorHorario> getProfHorarioList() {
+        return profHorarioList;
+    }
+
+    public void setProfHorarioList(ArrayList<ProfessorHorario> profHorarioList) {
+        this.profHorarioList = profHorarioList;
+    }
+        
+    
     /** 
      * Gera a matrícula de um Professor
      */

@@ -9,20 +9,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.util.Conexao;
 
-import model.database.entities.Ferramenta;
+import model.database.entities.CapacitacaoEspecial;
 
 /**
  *
- * Faz o CRUD com a tabela "professor_ferramenta" no banco de dados
- * 
  * @author lieds
  */
-public class ProfessorFerramentaDAO {
+public class ProfessorCapacitacaoEspecialDAO {
     
     private Conexao conn; //Variável usada para gerar a conexão com o banco de dados
     
     /** Método construtor que cria a conexão com o banco de dados*/    
-    public ProfessorFerramentaDAO() {
+    public ProfessorCapacitacaoEspecialDAO() {
         try {
             conn = new Conexao("localhost", "helpmedb", "root", "1234");
         } catch (SQLException ex) {
@@ -30,26 +28,27 @@ public class ProfessorFerramentaDAO {
         }
     }
     
-    public ArrayList<Ferramenta> selectAllFerramentasFromProfessor(int id) {
-        ArrayList<Ferramenta> ferramProfList = new ArrayList<>();
+    public ArrayList<CapacitacaoEspecial> selectAllCapacitacaoFromProfessor(int id) {
+        ArrayList<CapacitacaoEspecial> capacitProfList = new ArrayList<>();
         
         try {            
-            String sql = "SELECT * FROM professor_ferramenta"
+            String sql = "SELECT * FROM professor_capacitacao_especial"
                     + " WHERE fk_id_usuario = " + id;         
             
             ResultSet data = this.conn.executeQuery(sql);
             
             while(data.next()) {
-                Ferramenta ferramenta = new Ferramenta();
-                ferramenta.setId_usuario(id);
-                ferramenta.setNome_ferramenta(data.getString("nome_ferramenta"));                
-                                
-                ferramProfList.add(ferramenta);
+                CapacitacaoEspecial capacitacao = new CapacitacaoEspecial();                
+                capacitacao.setId_usuario(id);
+                capacitacao.setNome_capacitEspecial(data.getString("nome_capacitacao_especial"));
+                capacitacao.setId_condicaoEspecial(data.getInt("fk_id_condicao_especial"));
+                capacitProfList.add(capacitacao);
+                
             }
          } catch (SQLException ex) {
              System.out.println("ERRO AO ACESSAR BANCO DE FERRAMENTAS DOS PROFESSORES");
          }
                                          
-        return ferramProfList;
+        return capacitProfList;
     }
 }
